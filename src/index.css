@@ -97,3 +97,26 @@ input::-webkit-inner-spin-button {
 input[type='number'] {
   -moz-appearance: textfield;
 }
+
+/* width */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+/* track */
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* thumb */
+::-webkit-scrollbar-thumb {
+  background: rgba(100, 116, 139, 0.4); /* slate-500 */
+  border-radius: 999px;
+  transition: background 0.3s ease;
+}
+
+/* hover */
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(100, 116, 139, 0.7);
+}
