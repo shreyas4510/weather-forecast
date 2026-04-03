@@ -1,10 +1,15 @@
+import React from 'react'
 import WeatherApp from './pages/WeatherApp'
+import { ToastContainer } from 'react-toastify';
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 
+const queryClient = new QueryClient();
 function App() {
   return (
-    <>
+    <QueryClientProvider client={queryClient}>
+      <ToastContainer />
       <WeatherApp />
-    </>
+    </QueryClientProvider>
   )
 }
 
