@@ -42,23 +42,7 @@ export type WeatherChartProps = {
 
 export type Theme = {
     gradient: string;
-
-    textPrimary: string;
-    textSecondary: string;
-    textMuted: string;
-
-    iconPrimary: string;
-    iconSecondary: string;
-
+    text: string;
     accent: string;
-
-    cardBg: string;
-    cardBorder: string;
-
-    glassBg: string;
-
-    chart: {
-        temp: string;
-        rain: string;
-    };
+    card: string;
 };

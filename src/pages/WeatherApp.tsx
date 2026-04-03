@@ -11,6 +11,7 @@ import { getWeatherIcon, getWeatherMessage } from '../utils/weather.utils';
 import StatCard from '../components/StatCard';
 import WeatherChart from '../components/WeatherChart';
 import type { WeatherData, WeatherInput } from '../types/weather.types';
+import { toast } from 'react-toastify';
 
 const iconMap = {
     sun: <Sun size={20} className="text-yellow-400" />,
@@ -36,6 +37,11 @@ export default function WeatherApp() {
         const formData = new FormData(e.currentTarget);
         const lat = Number(formData.get('lat'));
         const lon = Number(formData.get('lon'));
+        if (isNaN(Number(lat)) || isNaN(Number(lon))) {
+            toast.error("Please enter valid coordinates");
+            return;
+        }
+
         const date = String(formData.get('date'));
         setParams({ lat, lon, date });
     };
@@ -54,11 +60,21 @@ export default function WeatherApp() {
                     <form onSubmit={handleOnSubmit} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 items-end">
                         <div className="space-y-1">
                             <label className="text-[10px] font-black uppercase tracking-widest opacity-60 ml-2">Latitude</label>
-                            <input name="lat" type="number" step="any" placeholder="18.52" className="w-full bg-white/40 border border-white/20 rounded-2xl px-5 py-4 outline-none focus:bg-white text-slate-900 transition-all" />
+                            <input
+                                name="lat"
+                                type="text"
+                                inputMode="decimal"
+                                placeholder="18.52"
+                                className="w-full bg-white/40 border border-white/20 rounded-2xl px-5 py-4 outline-none focus:bg-white text-slate-900 transition-all" />
                         </div>
                         <div className="space-y-1">
                             <label className="text-[10px] font-black uppercase tracking-widest opacity-60 ml-2">Longitude</label>
-                            <input name="lon" type="number" step="any" placeholder="73.85" className="w-full bg-white/40 border border-white/20 rounded-2xl px-5 py-4 outline-none focus:bg-white text-slate-900 transition-all" />
+                            <input
+                                name="lon"
+                                type="text"
+                                inputMode="decimal"
+                                placeholder="73.85"
+                                className="w-full bg-white/40 border border-white/20 rounded-2xl px-5 py-4 outline-none focus:bg-white text-slate-900 transition-all" />
                         </div>
                         <div className="space-y-1">
                             <label className="text-[10px] font-black uppercase tracking-widest opacity-60 ml-2">Date</label>

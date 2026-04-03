@@ -1,4 +1,4 @@
-import type { WeatherData } from "../types/weather.types";
+import type { Theme, WeatherData } from "../types/weather.types";
 
 export const getIsNight = (data: WeatherData) => {
     const hour = Number(data?.current?.time?.split('T')[1]?.split(':')[0]);
