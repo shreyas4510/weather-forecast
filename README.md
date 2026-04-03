@@ -31,6 +31,7 @@ A modern, responsive **weather dashboard** built using **React (Vite + TypeScrip
 ### 1. Clone the repository
 
 git clone https://github.com/shreyas4510/weather-forecast.git
+
 cd weather-forecast
 
 ### 2. Install dependencies
